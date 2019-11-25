@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="cadastro.css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="	https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> />
+</head>
+<body>
+
+    <div id="corpo">
+        <div id="topo">
+            <div id="logo">
+                <center>
+                    <img src="https://data1.logaster.com/image/logo/1/music-soul-328-240.png" width="150" height="150" alt="logo" align="middle">
+                </center>
+                <div id="divBusca">
+                    <input type="text" id="txtBusca" placeholder="Buscar..." />
+                    <button id="btnBusca">Buscar</button>
+                </div> </br>
+                <div id="divbutton">
+                    <button id="btnCadastro"></button>
+                </div>
+                <a class="button" href="vitrine%20(1).html" style=" border:1px solid; padding: 11px 21px; vertical-align: middle; background:#8a2be2; color:white;border-radius:6px; font-size: 20px; ">vitrine</a>
+                <link rel="stylesheet" type="text/css" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
+                <nav class="navbar-default" id="navbar">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#nav-menu">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+
+                            </button>
+                            <a class="navbar-brand" href="#banner">MusicSoul</a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="nav-menu">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="vitrine%20(1).html">Vitrine</a></li>
+                                <li><a href="login.html">Login</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+
+                <!--<nav>
+                 <ul class="menu">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Sobre</a></li>
+                </nav>  -->
+            </div>
+
+            <div id="menu">
+                <h1>
+                    Cadastro</><br />
+                    nome:
+                    <input type="text" id="nome" required /><br /><br />email:
+                    <input type="text" id="email" required /><br /><br />
+                    senha:
+                    <input type="password" id="senha" required /><br /><br />
+                    confirme a senha:
+                    <input type="password" id="senha2" required /><br /><br />
+                    Cpf:
+                    <input type="text" id="Cpf" required /><br /><br />
+                    telefone:<input type="text" id="fone" size="30" required /><br /><br />
+                    <input type="button" value="Cadastrar" style=" border:1px solid; padding: 11px 21px; vertical-align: middle; background:#8a2be2; color:white;border-radius:6px;"
+                           onclick="validar()" />
+            </div>
+
+        </div>
+</body>
+</html>
+<script lang="javascript">
+	function validar()
+	{
+         var Soma;
+    var Resto;
+    Soma = 0;
+    var regular_expression = /[0-9]{4,5}-[0-9]{4}/;
+    var resultado = regular_expression.test(fone.value);
+		//length retorna a qtd caracteres de obj
+		if(nome.value.length < 3){
+			alert("informe um nome valido");
+			return false;
+		}
+		if(senha.value.length < 6){
+			alert("informe uma senha com ao menos 6 caracteres");
+			return false;
+		}
+		if(senha.value != senha2.value){
+			alert("senha e confirmação não batem !");
+			return false;
+		}
+		// a@a.co
+		if(email.value.length < 6 ||
+			email.value.indexOf("@") <= 0 ||
+			email.value.indexOf(".") <= 0
+		)
+		{
+			alert("informe um email valido");
+			return false;
+		}
+                if (Cpf.value == "00000000000"){
+alert("informe um cpf valido") ;
+return false;
+     }
+  for (i=1; i<=9; i++) Soma = Soma + parseInt(Cpf.value.substring(i-1, i)) * (11 - i);
+  Resto = (Soma * 10) % 11;
+
+    if ((Resto == 10) || (Resto == 11))  Resto = 0;
+    if (Resto != parseInt(Cpf.value.substring(9, 10)) ){
+ alert("informe um cpf valido") ;
+ return false;
+   }
+  Soma = 0;
+    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(Cpf.value.substring(i-1, i)) * (12 - i);
+    Resto = (Soma * 10) % 11;
+
+    if ((Resto == 10) || (Resto == 11))  Resto = 0;
+    if (Resto != parseInt(Cpf.value.substring(10, 11) ) ){
+alert("informe um cpf valido") ;
+ return false;
+}
+    if(resultado == false){
+      alert("digite um telefone valido");
+      return false;
+}
+      alert("tudo certo");
+      return true;
+
+}
+
+
+
+</script>	
